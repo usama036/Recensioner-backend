@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_others_others",
+  "info": {
+    "name": "Other",
+    "icon": "code"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "description": {
+      "type": "richtext"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_buttons_buttons",
+  "info": {
+    "displayName": "button",
+    "icon": "address-card"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

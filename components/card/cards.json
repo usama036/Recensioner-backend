@@ -1,0 +1,60 @@
+{
+  "collectionName": "components_card_cards",
+  "info": {
+    "displayName": "Cards",
+    "icon": "address-card",
+    "description": "",
+    "name": "Card.cards"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image1": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "image2": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "jsonData": {
+      "type": "json"
+    },
+    "Button": {
+      "type": "component",
+      "repeatable": true,
+      "component": "button.button"
+    },
+    "date": {
+      "type": "datetime"
+    },
+    "richtext": {
+      "type": "richtext"
+    },
+    "type": {
+      "type": "string",
+      "unique": false
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_cards_card2s",
+  "info": {
+    "displayName": "Card2",
+    "icon": "allergies",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_cards_faqs",
+  "info": {
+    "displayName": "faqs",
+    "icon": "align-justify",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subTitle": {
+      "type": "text"
+    },
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "cards.card2"
+    }
+  }
+}

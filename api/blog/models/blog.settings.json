@@ -1,0 +1,83 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blogs",
+  "info": {
+    "name": "blog",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slug": {
+      "type": "string",
+      "unique": true
+    },
+    "card": {
+      "type": "component",
+      "repeatable": true,
+      "component": "card.cards"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "readingTime": {
+      "type": "integer"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "categories": {
+      "collection": "category"
+    },
+    "image1": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "button": {
+      "type": "component",
+      "repeatable": true,
+      "component": "button.button"
+    },
+    "date": {
+      "type": "datetime"
+    },
+    "writer": {
+      "model": "writer"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.seo"
+    },
+    "tags": {
+      "collection": "tags"
+    },
+    "Audio_Field": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    }
+  }
+}

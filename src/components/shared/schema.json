@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_shared_schemas",
+  "info": {
+    "displayName": "schema",
+    "icon": "align-justify",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "structuredData": {
+      "type": "text",
+      "required": true
+    },
+    "visibilityIn": {
+      "type": "boolean",
+      "required": true
+    }
+  }
+}

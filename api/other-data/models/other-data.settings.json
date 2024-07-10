@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "other_data",
+  "info": {
+    "name": "Other Data"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "others.other"
+    }
+  }
+}

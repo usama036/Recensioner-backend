@@ -1,0 +1,50 @@
+{
+  "collectionName": "components_cards_cards",
+  "info": {
+    "displayName": "card",
+    "icon": "address-book",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "image1": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "image2": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "jsonData": {
+      "type": "json"
+    },
+    "buttons": {
+      "type": "component",
+      "repeatable": true,
+      "component": "buttons.button"
+    },
+    "subTitle": {
+      "type": "text"
+    }
+  }
+}

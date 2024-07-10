@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_cards_related_blogs",
+  "info": {
+    "displayName": "relatedBlogs",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "blogs": {
+      "type": "relation",
+      "required": true,
+      "relation": "oneToMany",
+      "target": "api::blog-post.blog-post"
+    }
+  }
+}
