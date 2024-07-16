@@ -1,21 +1,11 @@
 import invobloxLogo from "./extensions/logo.svg";
-import invogamesLogo from "./extensions/invogamesLogo.png";
-import invoteamsLogo from "./extensions/InvoTeams-icon.png";
-const brands = {
 
-  "localhost:1337": {
-    title: "ModApk Dashboard",
-    workplace: "Welcome to modapk",
-    subtitle: "Log in to your local account",
-    welcomeTitle: "Welcome to local!",
-    headerSubtitle: "All the users who have access to the local admin panel",
-    logo: invobloxLogo,
-  },
-};
+import './custom.css';
+
 const config = {
   // Replace the Strapi logo in auth (login) views
   auth: {
-    logo: invobloxLogo,
+    logo:  invobloxLogo,
   },
   // Replace the favicon
   head: {
@@ -28,15 +18,14 @@ const config = {
   // Extend the translations
   translations: {
     en: {
-      "app.components.LeftMenu.navbrand.title":
-        "ModApk Dashboard",
-      "app.components.LeftMenu.navbrand.workplace":
-        "Welcome to ModApk",
+      "app.components.LeftMenu.navbrand.title":"Recensioner Dashboard",
+      "app.components.LeftMenu.navbrand.workplace":"Welcome to Recensioner App",
 
-      "Auth.form.welcome.subtitle": "Log in to your ModApk account",
-      "Auth.form.welcome.title": "Welcome to ModApk!",
+
+      "Auth.form.welcome.subtitle": "Log in to your Recensioner App account",
+      "Auth.form.welcome.title":" Welcome to Recensioner App",
       "Settings.permissions.users.listview.header.subtitle":
-        "All the users who have access to the local admin panel",
+        "All the users who have access to the local admin panel"
     },
     // fr: {
     //     'Auth.form.email.label': 'test',

@@ -4,7 +4,7 @@
   "info": {
     "singularName": "blog-post",
     "pluralName": "blog-posts",
-    "displayName": "App Posts",
+    "displayName": "Blogs",
     "description": ""
   },
   "options": {
@@ -21,90 +21,68 @@
       "targetField": "title",
       "required": true
     },
-    "post": {
-      "type": "richtext",
+    "readingTime": {
+      "type": "integer",
       "required": true
-    },
-    "rating": {
-      "type": "string",
-      "required": true
-    },
-    "metaTags": {
-      "type": "text"
     },
     "featuredImage": {
       "type": "media",
-      "multiple": false,
-      "required": false,
+      "multiple": true,
+      "required": true,
       "allowedTypes": [
-        "images",
-        "videos"
+        "images"
       ]
+    },
+    "writer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::writer.writer"
+    },
+    "summary": {
+      "type": "text",
+      "required": true
+    },
+    "content": {
+      "type": "richtext",
+      "required": true
     },
     "seo": {
       "type": "component",
       "repeatable": false,
       "component": "shared.seo"
     },
-    "publishedOn": {
-      "type": "date",
-      "required": true
+    "faqs": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.section"
     },
-    "size": {
-      "type": "string"
+    "cardImage": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     },
-    "Applogo": {
-      "type": "string"
-    },
-    "Image01": {
-      "type": "string"
-    },
-    "Image03": {
-      "type": "string"
-    },
-    "Image04": {
-      "type": "string"
-    },
-    "Image05": {
-      "type": "string"
-    },
-    "requirements": {
-      "type": "string"
-    },
-    "publisher": {
-      "type": "string"
-    },
-    "appAgeRating": {
-      "type": "enumeration",
-      "enum": [
-        "Everyone",
-        "Teen"
-      ],
-      "default": "Everyone"
-    },
-    "downloadLink": {
-      "type": "string"
-    },
-    "downloads": {
-      "type": "string"
+    "bannerImage": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     },
     "category": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "api::blog-category.blog-category",
-      "inversedBy": "app_post"
-    },
-    "latestVersion": {
-      "type": "string"
-    },
-    "isPopular": {
-      "type": "boolean"
-    },
-    "subtitle": {
-      "type": "string"
-    },
-    "isSideCardShow": {
-      "type": "boolean"
+      "target": "api::categorie.categorie",
+      "inversedBy": "app_posts"
     }
   }
 }

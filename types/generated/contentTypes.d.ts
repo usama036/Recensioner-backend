@@ -788,56 +788,12 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface ApiBlogCategoryBlogCategory extends Schema.CollectionType {
-  collectionName: 'blog_categories';
-  info: {
-    singularName: 'blog-category';
-    pluralName: 'blog-categories';
-    displayName: 'Categories';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    name: Attribute.String & Attribute.Required;
-    slug: Attribute.UID<'api::blog-category.blog-category', 'name'> &
-      Attribute.Required;
-    description: Attribute.RichText & Attribute.Required;
-    seo: Attribute.Component<'shared.seo'>;
-    app_post: Attribute.Relation<
-      'api::blog-category.blog-category',
-      'oneToMany',
-      'api::blog-post.blog-post'
-    >;
-    rawDesc: Attribute.Text;
-    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    PageCategory: Attribute.Enumeration<['Apps', 'Games']> &
-      Attribute.DefaultTo<'Apps'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::blog-category.blog-category',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::blog-category.blog-category',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiBlogPostBlogPost extends Schema.CollectionType {
   collectionName: 'blog_posts';
   info: {
     singularName: 'blog-post';
     pluralName: 'blog-posts';
-    displayName: 'App Posts';
+    displayName: 'Blogs';
     description: '';
   };
   options: {
@@ -847,33 +803,28 @@ export interface ApiBlogPostBlogPost extends Schema.CollectionType {
     title: Attribute.String & Attribute.Required;
     slug: Attribute.UID<'api::blog-post.blog-post', 'title'> &
       Attribute.Required;
-    post: Attribute.RichText & Attribute.Required;
-    rating: Attribute.String & Attribute.Required;
-    metaTags: Attribute.Text;
-    featuredImage: Attribute.Media<'images' | 'videos'>;
+    readingTime: Attribute.Integer & Attribute.Required;
+    featuredImage: Attribute.Media<'images', true> & Attribute.Required;
+    writer: Attribute.Relation<
+      'api::blog-post.blog-post',
+      'oneToOne',
+      'api::writer.writer'
+    >;
+    summary: Attribute.Text & Attribute.Required;
+    content: Attribute.RichText & Attribute.Required;
     seo: Attribute.Component<'shared.seo'>;
-    publishedOn: Attribute.Date & Attribute.Required;
-    size: Attribute.String;
-    Applogo: Attribute.String;
-    Image01: Attribute.String;
-    Image03: Attribute.String;
-    Image04: Attribute.String;
-    Image05: Attribute.String;
-    requirements: Attribute.String;
-    publisher: Attribute.String;
-    appAgeRating: Attribute.Enumeration<['Everyone', 'Teen']> &
-      Attribute.DefaultTo<'Everyone'>;
-    downloadLink: Attribute.String;
-    downloads: Attribute.String;
+    faqs: Attribute.Component<'sections.section'>;
+    cardImage: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true> &
+      Attribute.Required;
+    bannerImage: Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
     category: Attribute.Relation<
       'api::blog-post.blog-post',
       'manyToOne',
-      'api::blog-category.blog-category'
+      'api::categorie.categorie'
     >;
-    latestVersion: Attribute.String;
-    isPopular: Attribute.Boolean;
-    subtitle: Attribute.String;
-    isSideCardShow: Attribute.Boolean;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -885,6 +836,44 @@ export interface ApiBlogPostBlogPost extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::blog-post.blog-post',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCategorieCategorie extends Schema.CollectionType {
+  collectionName: 'categories';
+  info: {
+    singularName: 'categorie';
+    pluralName: 'categories';
+    displayName: 'Categorie';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    slug: Attribute.UID & Attribute.Required;
+    name: Attribute.String;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    app_posts: Attribute.Relation<
+      'api::categorie.categorie',
+      'oneToMany',
+      'api::blog-post.blog-post'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::categorie.categorie',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::categorie.categorie',
       'oneToOne',
       'admin::user'
     > &
@@ -920,6 +909,47 @@ export interface ApiPagePage extends Schema.CollectionType {
   };
 }
 
+export interface ApiWriterWriter extends Schema.CollectionType {
+  collectionName: 'writers';
+  info: {
+    singularName: 'writer';
+    pluralName: 'writers';
+    displayName: 'writer';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required & Attribute.Unique;
+    slug: Attribute.UID<'api::writer.writer', 'name'> & Attribute.Required;
+    image: Attribute.Media<'images', true>;
+    description: Attribute.Text;
+    description2: Attribute.Text;
+    facebook: Attribute.String;
+    linkedin: Attribute.String;
+    instagram: Attribute.String;
+    twitter: Attribute.String;
+    tag: Attribute.Text;
+    WriterSEO: Attribute.Component<'shared.seo', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::writer.writer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::writer.writer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -938,9 +968,10 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'api::blog-category.blog-category': ApiBlogCategoryBlogCategory;
       'api::blog-post.blog-post': ApiBlogPostBlogPost;
+      'api::categorie.categorie': ApiCategorieCategorie;
       'api::page.page': ApiPagePage;
+      'api::writer.writer': ApiWriterWriter;
     }
   }
 }
