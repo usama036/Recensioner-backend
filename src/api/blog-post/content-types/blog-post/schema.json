@@ -23,7 +23,7 @@
     },
     "readingTime": {
       "type": "integer",
-      "required": true
+      "required": false
     },
     "featuredImage": {
       "type": "media",
@@ -59,7 +59,7 @@
     "cardImage": {
       "type": "media",
       "multiple": true,
-      "required": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
@@ -83,6 +83,9 @@
       "relation": "manyToOne",
       "target": "api::categorie.categorie",
       "inversedBy": "app_posts"
+    },
+    "date": {
+      "type": "date"
     }
   }
 }

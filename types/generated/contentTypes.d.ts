@@ -803,7 +803,7 @@ export interface ApiBlogPostBlogPost extends Schema.CollectionType {
     title: Attribute.String & Attribute.Required;
     slug: Attribute.UID<'api::blog-post.blog-post', 'title'> &
       Attribute.Required;
-    readingTime: Attribute.Integer & Attribute.Required;
+    readingTime: Attribute.Integer;
     featuredImage: Attribute.Media<'images', true> & Attribute.Required;
     writer: Attribute.Relation<
       'api::blog-post.blog-post',
@@ -814,8 +814,7 @@ export interface ApiBlogPostBlogPost extends Schema.CollectionType {
     content: Attribute.RichText & Attribute.Required;
     seo: Attribute.Component<'shared.seo'>;
     faqs: Attribute.Component<'sections.section'>;
-    cardImage: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true> &
-      Attribute.Required;
+    cardImage: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
     bannerImage: Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
@@ -825,6 +824,7 @@ export interface ApiBlogPostBlogPost extends Schema.CollectionType {
       'manyToOne',
       'api::categorie.categorie'
     >;
+    date: Attribute.Date;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
